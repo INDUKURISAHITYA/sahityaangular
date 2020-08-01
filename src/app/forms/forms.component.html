@@ -1,0 +1,45 @@
+<div class="container">
+       <form #user="ngForm" (ngSubmit)="onsubmit()">
+           <div *ngIf="success" class="alert alert-success">Form Submitted Succesfully</div>
+           <div *ngIf="errormessage" class="alert alert-danger">Server Not Found please connect to Internet</div>
+           <h3>Post a job</h3>
+           <div class="form-group">
+               <div class="row">
+                   <div class="col-sm-2"></div>
+                   <div class="col-sm-2"><label>Job Title</label></div> 
+                    <div class="col-sm-6"><input class="col-sm-6" type="text" #name="ngModel" [class.is-invalid]="name.touched&&name.invalid" pattern="^[a-zA-Z]*$" [(ngModel)]="form.job" name="job" required placeholder="Job title..." class="form-control">
+                        <div *ngIf="name.errors && (name.invalid && name.touched)">
+                            <small class="text-danger" *ngIf="name.errors.required">please enter Job tilte</small>
+                            <small class="text-danger" *ngIf="name.errors.pattern">please enter only characters in Job title</small>
+                       </div></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-2"><label>Job Salary</label></div> 
+                     <div class="col-sm-6"><input class="col-sm-6" #salary="ngModel"  name="salary" [class.is-invalid]="salary.touched&&salary.invalid" pattern="^[0-9]*$" [(ngModel)]="form.salary" required type="text" placeholder="Job salary..." class="form-control">
+                     <div *ngIf="salary.errors && (salary.invalid &&salary.touched)">
+                        <small class="text-danger" *ngIf="salary.errors.required">please enter salary Details</small>
+                        <small class="text-danger" *ngIf="salary.errors.pattern">please enter only digits</small>
+                   </div></div>
+                    </div>
+             </div>
+             <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-2"><label>Job Description</label></div> 
+                     <div class="col-sm-6"><input class="col-sm-6" #desc="ngModel"  [class.is-invalid]="desc.touched&&desc.invalid" pattern="^[a-zA-Z]*$" required [(ngModel)]="form.description" name="description" type="text" placeholder="Job description..." class="form-control">
+                     <div *ngIf="desc.errors && (desc.invalid &&desc.touched)">
+                        <small class="text-danger" *ngIf="desc.errors.required">please enter Job Description</small>
+                        <small class="text-danger" *ngIf="desc.errors.pattern">please enter only characters in description</small>
+                   </div></div>
+                    </div>
+             </div>
+             <div class="row">
+                <div class="col-sm-5"></div>
+                <button class="btn btn-primary" [disabled]="user.form.invalid">Submit</button>&nbsp;&nbsp;
+                <a routerLink ='/list' class="btn btn-warning">ADD</a>
+             </div>
+    </form>  
+</div>

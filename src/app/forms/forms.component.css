@@ -1,0 +1,16 @@
+form
+{
+    border:1px solid gray;
+    padding: 30px;
+    border-radius: 50px ;
+    margin-top: 20px;
+}
+h3
+{
+    text-align: center;
+    padding: 20px   ;
+}
+label
+{
+    font-size:18px;
+}

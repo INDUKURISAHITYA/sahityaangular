@@ -1,0 +1,21 @@
+
+.active
+{
+    margin-top: 50px;
+    border: 1px solid gray;
+    padding: 50px;  
+    background-color:lightseagreen;
+}
+div h3
+{
+   color: white;
+   padding: 10px;
+}
+.card
+{
+    margin: 10px;
+}
+.card-body
+{
+    text-align: center;
+}
